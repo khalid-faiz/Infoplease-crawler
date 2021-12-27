@@ -107,11 +107,10 @@ while True:
         cur.execute('UPDATE Pages SET error=-1 WHERE url=?', (url, ) )
         conn.commit()
         continue
-    #try:
+	
+    #get the article from the html doc and update the database
     article = bs2art(soup)
     cur.execute('INSERT OR IGNORE INTO Pages (url, html, new_rank) VALUES ( ?, NULL, 1.0 )', ( url,) )
-    #except:
-    #cur.execute('INSERT OR IGNORE INTO Pages (url, html, new_rank) VALUES ( ?, NULL, 1.0 )', ( url, ) )
     cur.execute('UPDATE Pages SET html=? WHERE url=?', (memoryview(html), url ) )
     cur.execute('UPDATE Pages SET article=? WHERE url=?', (article , url ) )
     conn.commit()
