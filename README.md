@@ -1,5 +1,5 @@
 # Infoplease-crawler
- A python program [spidering_articles.py] to pull infoplease.com articles.
+ A python program [spidering_articles.py] to pull infoplease.com articles and svae them in a local sqlite database.
  
 I editted Dr. Cuck's spider.py and gmane.py codes to create this code.
 
